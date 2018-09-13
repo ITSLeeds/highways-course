@@ -10,7 +10,7 @@ and transport data with R.
 
   - Introduction to R
   - How to use RStudio
-  - Using packages (emphasis: tidyverse)
+  - Using packages (emphasis: tidyverse) (ROBIN: agree.  Apologies that oneminutetrafficdata isn't tidy! IW)
   - Stats refresher
   - Temporal data
 
@@ -29,7 +29,7 @@ and transport data with R.
 
 **Day 2 transport data**
 
-  - Origin-destination / stats19
+  - Origin-destination / stats19 (ROBIN: gmapsdistance package?  STATS19 from stplanr, from raw and/or from whatever HE takes in.  IW)
 
 **Lunch**
 
@@ -37,11 +37,12 @@ and transport data with R.
 
 ## Optional extras (to discuss)
 
-  - Roadworks data (HTDD/Scottish/Leeds data - HE have data?)
+  - Roadworks data (HTDD/Scottish/Leeds data - HE have data?) (ROBIN: No more than a demo to whet the appetite, I think. IW)
   - Stats19
   - Routing engines
   - Air pollution
   - Traffic data (other)
+  (ROBIN: GGPLOT2!! Heatmaps, scatterplots, worth asking what charts HE likes. Also, how about EA data on flooding?  I have some stuff on this...IW)
 
 ## To discuss/confirm
 
