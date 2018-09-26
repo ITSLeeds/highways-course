@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 ```{r, eval=FALSE, echo=FALSE}
 # generate/publish online the materials
-piggyback::pb_new_release(tag = "0.1")
+# piggyback::pb_new_release(tag = "0.1")
 file.rename("README.docx", "highways-course.docx")
 piggyback::pb_upload("highways-course.docx")
 knitr::purl("README.Rmd")

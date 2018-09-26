@@ -9,8 +9,9 @@ knitr::opts_chunk$set(
 ## piggyback::pb_new_release(tag = "0.1")
 ## file.rename("README.docx", "highways-course.docx")
 ## piggyback::pb_upload("highways-course.docx")
+## knitr::purl("README.Rmd")
 
-## ------------------------------------------------------------------------
+## ---- message=FALSE, warning=FALSE---------------------------------------
 pkgs = c(
   "osmdata",   # for working with open street map data
   "sf",        # a package for working with spatial data
@@ -94,4 +95,7 @@ tmap::tmap_leaflet(m1)
 ## mat_dest = sln@sl
 ## nearest_o = knn_orig <- nabor::knn(mat_via, query = mat_orig, k = 1)$nn.idx
 ## route_lds = (from = origin_lds, to = destination)
+
+## ---- eval=FALSE---------------------------------------------------------
+## source("https://raw.githubusercontent.com/ITSLeeds/highways-course/master/README.R")
 
