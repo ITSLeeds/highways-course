@@ -11,6 +11,15 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
+```{r, eval=FALSE, echo=FALSE}
+# generate/publish online the materials
+piggyback::pb_new_release(tag = "0.1")
+file.rename("README.docx", "highways-course.docx")
+piggyback::pb_upload("highways-course.docx")
+knitr::purl("README.Rmd")
+```
+
 ## Aim
 
 The aim of highways-course is to provide content for a 2 day course on R and transport data with R.
@@ -19,78 +28,81 @@ The aim of highways-course is to provide content for a 2 day course on R and tra
 
 - Introduction to R
 - How to use RStudio 
-- Using packages (emphasis: tidyverse)
-- Stats refresher
 - Temporal data
+- Stats refresher
+- Using packages: example with ggplot2
 
 **Lunch**
 
 - Spatial data in R
-- Intro + R's spatial ecosystem: 
-       See section 1.4 of Geocomputation with R
-     Working with attribute data (10:30 - 11:00)
-         Section 3.2 of handouts
+- R's spatial ecosystem:
+  -See section [1.4 of Geocomputation with R  - Working with attribute data](https://geocompr.robinlovelace.net/intro.html#rs-spatial-ecosystem)
+  - [Section 3.2](https://geocompr.robinlovelace.net/attr.html#vector-attribute-manipulation) of handouts
 
-- Spatial data and the tidyverse lecture (11:15 - 11:30)
-  - Vector data classes
-  - Online tutorial: 2.1 of Geocomputation with R (11:30 - 12:00)
+- Demo of roadworks data with R
+  - Online tutorial: 2.1 of Geocomputation with R
 
 **Day 2 transport data**
 
-- Origin-destination / stats19
+- Point data: Stats19
+- Data frames and desire lines: using origin-destination data
+- Practical: finding crash hotspots
 
 **Lunch**
 
-- Traffic data (MIDAS Gold)
+- Traffic data
+- Working on real datasets such as flooding or traffic data, or improving specific skills such as visualisation
+<!-- (MIDAS Gold) -->
 
-## Optional extras (to discuss)
+<!-- ## Optional extras (to discuss) -->
 
-- Roadworks data (HTDD/Scottish/Leeds data - HE have data?)
-- Stats19
-- Routing engines
-- Air pollution
-- Traffic data (other)
+<!-- - Roadworks data (HTDD/Scottish/Leeds data - HE have data?) -->
+<!-- - Stats19 -->
+<!-- - Routing engines -->
+<!-- - Air pollution -->
+<!-- - Traffic data (other) -->
 
-## To discuss/confirm
+<!-- ## To discuss/confirm -->
 
-- 10 ppl HE + 8 RAC 
-- Managed work laptops - install pre-requisites - pre-reqs document.
-- Demonstrators (ask Josh - possible fee, ask Maxine should be fine)
-- Ivo Helper
-- Location: look into it - plus refreshments
-  - None HE Leeds
-  - Maybe HE Birmingham
-  - Maybe RAC
-- Timing: mid November or w/c 10th Dec
+<!-- - 10 ppl HE + 8 RAC  -->
+<!-- - Managed work laptops - install pre-requisites - pre-reqs document. -->
+<!-- - Demonstrators (ask Josh - possible fee, ask Maxine should be fine) -->
+<!-- - Ivo Helper -->
+<!-- - Location: look into it - plus refreshments -->
+<!--   - None HE Leeds -->
+<!--   - Maybe HE Birmingham -->
+<!--   - Maybe RAC -->
+<!-- - Timing: mid November or w/c 10th Dec -->
 
 ## Prerequisites
 
-Attendees are expected to bring their own laptop with the following packages installed and working:
+Attendees are expected to bring their own laptop with the following packages installed and working.
+You can check these are all installed, and install those that are not installed, as follows (you can also just type `install.packages("sf")` etc):
 
 ```{r}
 pkgs = c(
-  "osmdata",   # for working with osmdata
+  "osmdata",   # for working with open street map data
   "sf",        # a package for working with spatial data
   "stplanr",   # a transport data package
   "tidyverse", # metapackage for data science
   "tmap"       # a mapping package
 )
-```
 
-You can check these are all installed, and install those that are not installed, as follows (you can also just type `install.packages("sf")` etc):
-
-```{r}
 pkgs_installed = pkgs %in% installed.packages()
 names(pkgs_installed) = pkgs
 pkgs_installed
 if(!all(pkgs_installed)) {
   install.packages(pkgs[!pkgs_installed])
 }
+
+# Make sure your packages are up-to-date with:
+
+update.packages(ask = FALSE)
 ```
 
 In addition, it would be useful to have oneminutetraffic, which can be installed with:
 
-```{r}
+```{r, message=FALSE}
 devtools::install_github("RACFoundation/oneminutetrafficdata")
 ```
 
@@ -102,7 +114,7 @@ It results in a map that will guide you to the location of the course.
 
 Attach the packages:
 
-```{r}
+```{r, message=FALSE}
 library(sf)
 library(stplanr)
 library(tidyverse)
@@ -121,9 +133,10 @@ m1 = tmap::qtm(line_lnd)
 tmap::tmap_leaflet(m1)
 ```
 
-The route from Leeds rail station looks like this:
+Bonus: find the route from Leeds rail station 
+(see the code at )
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 origin_lds = geo_code("Leeds rail station")
 destination = geo_code("Worsley Building, Leeds")
 bb = matrix(c(-1.56, 53.7, -1.53, 53.9), ncol = 2)
@@ -131,6 +144,10 @@ library(osmdata)
 roads = opq(bbox = bb) %>% 
   add_osm_feature(key = "highway", value = "pri|sec|res", value_exact = FALSE) %>% 
   osmdata_sf()
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
 sln = SpatialLinesNetwork(roads$osm_lines)
 
 from_sln = find_network_nodes(sln, origin_lds[1], origin_lds[2])
@@ -145,10 +162,8 @@ tmap::tmap_leaflet(m2) %>%
   addCircleMarkers(lng = destination[1], lat = destination[2])
 ```
 
-
-
-
 ```{r, eval=FALSE, echo=FALSE}
+# bumpf (not used)
 getbb_of_two_points = function(p1, p2) {
   minx = min(c(p1[1], p2[1]))
   maxx = max(c(p1[1], p2[1]))
@@ -171,6 +186,3 @@ mat_dest = sln@sl
 nearest_o = knn_orig <- nabor::knn(mat_via, query = mat_orig, k = 1)$nn.idx
 route_lds = (from = origin_lds, to = destination)
 ```
-
-
-
