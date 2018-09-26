@@ -6,6 +6,9 @@
 The aim of highways-course is to provide content for a 2 day course on R
 and transport data with R.
 
+Course contents can be found online at:
+<https://github.com/ITSLeeds/highways-course>
+
 ## Course contents (times TBC)
 
   - Introduction to R
@@ -98,20 +101,6 @@ if(!all(pkgs_installed)) {
 # Make sure your packages are up-to-date with:
 
 update.packages(ask = FALSE)
-#> Warning: package 'cli' in library '/usr/lib/R/site-library' will not be
-#> updated
-#> Warning: package 'curl' in library '/usr/lib/R/site-library' will not be
-#> updated
-#> Warning: package 'devtools' in library '/usr/lib/R/site-library' will not
-#> be updated
-#> Warning: package 'openssl' in library '/usr/lib/R/site-library' will not be
-#> updated
-#> Warning: package 'rgl' in library '/usr/lib/R/site-library' will not be
-#> updated
-#> Warning: package 'rprojroot' in library '/usr/lib/R/site-library' will not
-#> be updated
-#> Warning: package 'units' in library '/usr/lib/R/site-library' will not be
-#> updated
 ```
 
 In addition, it would be useful to have oneminutetraffic, which can be
@@ -150,4 +139,15 @@ tmap::tmap_leaflet(m1)
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-Bonus: find the route from Leeds rail station (see the code at )
+Note: you can test all of these things work by running the following
+command:
+
+``` r
+source("https://raw.githubusercontent.com/ITSLeeds/highways-course/master/README.R")
+```
+
+Bonus: find the route from Leeds rail station (see the code in
+`README.R` on the course website at
+<https://github.com/ITSLeeds/highways-course> )
+
+## References

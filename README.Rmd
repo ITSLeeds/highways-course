@@ -24,6 +24,8 @@ knitr::purl("README.Rmd")
 
 The aim of highways-course is to provide content for a 2 day course on R and transport data with R.
 
+Course contents can be found online at: https://github.com/ITSLeeds/highways-course
+
 ## Course contents (times TBC)
 
 - Introduction to R
@@ -79,7 +81,7 @@ The aim of highways-course is to provide content for a 2 day course on R and tra
 Attendees are expected to bring their own laptop with the following packages installed and working.
 You can check these are all installed, and install those that are not installed, as follows (you can also just type `install.packages("sf")` etc):
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 pkgs = c(
   "osmdata",   # for working with open street map data
   "sf",        # a package for working with spatial data
@@ -133,8 +135,6 @@ m1 = tmap::qtm(line_lnd)
 tmap::tmap_leaflet(m1)
 ```
 
-Bonus: find the route from Leeds rail station 
-(see the code at )
 
 ```{r, echo=FALSE, eval=FALSE}
 origin_lds = geo_code("Leeds rail station")
@@ -186,3 +186,15 @@ mat_dest = sln@sl
 nearest_o = knn_orig <- nabor::knn(mat_via, query = mat_orig, k = 1)$nn.idx
 route_lds = (from = origin_lds, to = destination)
 ```
+
+
+Note: you can test all of these things work by running the following command:
+
+```{r, eval=FALSE}
+source("https://raw.githubusercontent.com/ITSLeeds/highways-course/master/README.R")
+```
+
+Bonus: find the route from Leeds rail station 
+(see the code in `README.R` on the course website at https://github.com/ITSLeeds/highways-course )
+
+## References
