@@ -1,0 +1,34 @@
+
+## Day 1
+
+09:00-09:30 Arrival and set-up
+
+09:30-11:00 Course delivery
+
+11:00-11:15 Coffee break
+
+11:15-12:30 Course delivery
+
+12:30-13:30 Lunch break
+
+13:30-15:00 Course delivery
+
+15:00-15:15 Coffee break
+
+15:15-16:30 Course delivery
+
+## Day 2
+
+09:30-11:00 Course delivery
+
+11:00-11:15 Coffee break
+
+11:15-12:30 Course delivery
+
+12:30-13:30 Lunch break
+
+13:30-15:00 Course delivery
+
+15:00-15:15 Coffee break
+
+15:15-16:30 Course delivery
