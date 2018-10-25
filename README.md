@@ -13,8 +13,6 @@ Course contents can be found online at:
 
 09:00-09:30 Arrival and set-up
 
-12:30-13:30 Lunch break
-
 09:30-11:00 Introduction to the course and software
 
   - Introduction to R
@@ -34,17 +32,28 @@ Course contents can be found online at:
 13:30-15:00 Spatial data in R
 
   - Spatial data in R
-  - R’s spatial ecosystem: -See section [1.4 of Geocomputation with R -
-    Working with attribute
-    data](https://geocompr.robinlovelace.net/intro.html#rs-spatial-ecosystem)
-      - [Section 3.2](https://geocompr.robinlovelace.net/attr.html#vector-attribute-manipulation)
-        of handouts
+  - R’s spatial ecosystem (see section [1.4 of Geocomputation with R -
+    the ecosystem
+    data](https://geocompr.robinlovelace.net/intro.html#rs-spatial-ecosystem))
+  - Practical: [Section 3.2
+    to 3.2.2](https://geocompr.robinlovelace.net/attr.html#vector-attribute-manipulation)
+    of
+    handouts
+  - [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1):
+    1 to 3 in the hand-outs
 
 15:15-16:30 Real-work example and consolidation
 
   - Demo of roadworks data with R
-  - Basic option: working-through tutorial
-  - Advanced option: 2.1 of Geocomputation with R
+  - Practical: working-through sections [3.2.3
+    to 3.2.4](https://geocompr.robinlovelace.net/attr.html#vector-attribute-joining)
+    of
+    hand-outs
+  - [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1):
+    4 to 6 onwards
+  - Advanced option: Section
+    [2.2](https://geocompr.robinlovelace.net/spatial-class.html#vector-data)
+    of Geocomputation with R
 
 **Day 2 transport data**
 
@@ -71,8 +80,31 @@ Course contents can be found online at:
 15:15-16:30 Practical application
 
   - Working on real datasets such as flooding or traffic data, or
-    improving specific skills such as
-visualisation
+    improving specific skills such as visualisation
+
+## Prerequisites
+
+### Prior reading/experience
+
+If you are new to R, ensure you have attempted a basic introductory
+course such as DataCamp’s [introduction to
+R](https://www.datacamp.com/courses/free-introduction-to-r) free course
+or equivalent.
+
+If you’re interested in R for ‘data science’ and
+installing/updating/choosing R packages, these additional resources are
+recommended (these optional resources are all freely availble online):
+
+  - The introductory chapter of [R for Data
+    Science](https://r4ds.had.co.nz/introduction.html)
+  - Chapter 2 on [setting-up
+    R](https://csgillespie.github.io/efficientR/set-up.html) and section
+    4.4 on [package
+    selection](https://csgillespie.github.io/efficientR/workflow.html#package-selection)
+    in the book *Efficient R Programming*
+  - The [Transport](https://geocompr.robinlovelace.net/transport.html)
+    chapter of the new book Geocomputation with
+R
 
 <!-- (MIDAS Gold) -->
 
@@ -108,7 +140,7 @@ visualisation
 
 <!-- - Timing: mid November or w/c 10th Dec -->
 
-## Prerequisites
+### Computing requirements
 
 Attendees are expected to bring their own laptop with the following
 packages installed and working. You can check these are all installed,
@@ -116,24 +148,15 @@ and install those that are not installed, as follows (you can also just
 type `install.packages("sf")` etc):
 
 ``` r
-pkgs = c(
-  "osmdata",   # for working with open street map data
-  "sf",        # a package for working with spatial data
-  "stplanr",   # a transport data package
-  "tidyverse", # metapackage for data science
-  "tmap"       # a mapping package
-)
-
-to_install = !pkgs %in% installed.packages()
-names(to_install) = pkgs
-to_install
-if(any(to_install)) {
-  install.packages(pkgs[to_install])
-}
+install.packages("osmdata")   # for working with open street map data
+install.packages("sf")        # a package for working with spatial data
+install.packages("spData")    # provides example data
+install.packages("stplanr")   # a transport data package
+install.packages("tidyverse") # metapackage for data science
+install.packages("tmap")      # a mapping package
 
 # Make sure your packages are up-to-date with:
-
-update.packages(ask = FALSE)
+update.packages()
 ```
 
 In addition, it would be useful to have oneminutetraffic, which can be
@@ -170,7 +193,7 @@ m1 = tmap::qtm(line_lnd)
 tmap::tmap_leaflet(m1)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 Note: you can test all of these things work by running the following
 command:
