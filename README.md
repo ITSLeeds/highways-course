@@ -9,6 +9,23 @@ and transport data with R.
 Course contents can be found online at:
 <https://github.com/ITSLeeds/highways-course>
 
+Hi all,
+
+We’re looking forward to the upcoming R for transport course we’re
+running at the University of Leeds, 15th-16th November. This email
+contains some information about the course including vital timings and
+pre-requisites.
+
+## Location
+
+Leeds Institute for Transport Studies, 40 University Road, LS2 9JT. It
+can be seen in this [web
+map](https://www.openstreetmap.org/way/84749920), highlighted in red
+below, just opposite Woodhouse Moore (it’s a 20 minute walk from the
+station):
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
 ## Course contents
 
 09:00-09:30 Arrival and set-up
@@ -193,7 +210,7 @@ m1 = tmap::qtm(line_lnd)
 tmap::tmap_leaflet(m1)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 Note: you can test all of these things work by running the following
 command:

@@ -26,6 +26,35 @@ The aim of highways-course is to provide content for a 2 day course on R and tra
 
 Course contents can be found online at: https://github.com/ITSLeeds/highways-course
 
+Hi all,
+
+We're looking forward to the upcoming R for transport course we're running at the University of Leeds, 15th-16th November. This email contains some information about the course including vital timings and pre-requisites.
+
+## Location
+
+Leeds Institute for Transport Studies, 40 University Road, LS2 9JT.
+It can be seen in this [web map](https://www.openstreetmap.org/way/84749920), highlighted in red below, just opposite Woodhouse Moore (it's a 20 minute walk from the station):
+
+```{r itsmap, include=FALSE}
+library(osmdata)
+library(tmap)
+its = opq("Leeds") %>% 
+  add_osm_feature(key = "name", value = "Institute for Transport Studies") %>% 
+  osmdata_sf()
+# m = mapview::mapview(its$osm_polygons, zoom = 16)
+m = tm_shape(its$osm_polygons) +
+  tm_polygons(col = "red") +
+  tm_view(set.view = 16)
+tmap_mode("view")
+ml = tmap_leaflet(m)
+```
+
+```{r, echo=FALSE}
+ml
+```
+
+
+
 ## Course contents
 
 09:00-09:30 Arrival and set-up
