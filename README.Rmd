@@ -189,8 +189,8 @@ library(tidyverse)
 The overall route assuming you're travelling from London:
 
 ```{r}
-origin_lnd = geo_code("London Kings Cross")
-destination = geo_code("Worsley Building, Leeds")
+origin_lnd = c(-0.1, 51.5)
+destination = c(-1.55, 53.8)
 odmatrix = matrix(c(origin_lnd, destination), ncol = 2, byrow = TRUE)
 line_lnd = st_linestring(odmatrix) %>% 
   st_sfc() %>% 
