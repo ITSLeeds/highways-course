@@ -3,18 +3,11 @@
 
 ## Aim
 
-The aim of highways-course is to provide content for a 2 day course on R
-and transport data with R.
+The aim of R for Highways Research and Transport Planning is to provide
+content for a 2 day course on R and transport data with R.
 
 Course contents can be found online at:
 <https://github.com/ITSLeeds/highways-course>
-
-Hi all,
-
-We’re looking forward to the upcoming R for transport course we’re
-running at the University of Leeds, 15th-16th November. This email
-contains some information about the course including vital timings and
-pre-requisites.
 
 ## Location
 
@@ -68,9 +61,10 @@ station):
     hand-outs
   - [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1):
     4 to 6 onwards
-  - Advanced option: Section
-    [2.2](https://geocompr.robinlovelace.net/spatial-class.html#vector-data)
+  - Advanced option: Section [4.2 - Spatial operations on vector
+    data](https://geocompr.robinlovelace.net/spatial-operations.html#spatial-vec)
     of Geocomputation with R
+    <!-- - Advanced option: Section [2.2](https://geocompr.robinlovelace.net/spatial-class.html#vector-data) of Geocomputation with R -->
 
 **Day 2 transport data**
 
