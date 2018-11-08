@@ -185,14 +185,16 @@ library(tidyverse)
 The overall route assuming you're travelling from London:
 
 ```{r}
+uk = spData::world %>% 
+  filter(name_long == "United Kingdom")
 origin_lnd = c(-0.1, 51.5)
 destination = c(-1.55, 53.8)
 odmatrix = matrix(c(origin_lnd, destination), ncol = 2, byrow = TRUE)
 line_lnd = st_linestring(odmatrix) %>% 
   st_sfc() %>% 
   st_sf(crs = 4326)
-m1 = tmap::qtm(line_lnd)
-tmap::tmap_leaflet(m1)
+plot(st_geometry(uk), col = "grey")
+plot(line_lnd, add = TRUE, lwd = 5, col = "red")
 ```
 
 
@@ -200,6 +202,9 @@ tmap::tmap_leaflet(m1)
 origin_lds = geo_code("Leeds rail station")
 destination = geo_code("Worsley Building, Leeds")
 bb = matrix(c(-1.56, 53.7, -1.53, 53.9), ncol = 2)
+m1 = tmap::qtm(line_lnd)
+tmap::tmap_leaflet(m1)
+
 library(osmdata)
 roads = opq(bbox = bb) %>% 
   add_osm_feature(key = "highway", value = "pri|sec|res", value_exact = FALSE) %>% 
