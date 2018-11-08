@@ -212,15 +212,14 @@ tmap::tmap_leaflet(m1)
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-Note: you can test all of these things work by running the following
-command:
+<!-- Note: you can test all of these things work by running the following command: -->
 
-``` r
-source("https://raw.githubusercontent.com/ITSLeeds/highways-course/master/README.R")
-```
+<!-- ```{r, eval=FALSE} -->
 
-Bonus: find the route from Leeds rail station (see the code in
-`README.R` on the course website at
-<https://github.com/ITSLeeds/highways-course> )
+<!-- source("https://raw.githubusercontent.com/ITSLeeds/highways-course/master/README.R") -->
 
-## References
+<!-- ``` -->
+
+<!-- Bonus: find the route from Leeds rail station  -->
+
+<!-- (see the code in `README.R` on the course website at https://github.com/ITSLeeds/highways-course ) -->

@@ -251,13 +251,11 @@ nearest_o = knn_orig <- nabor::knn(mat_via, query = mat_orig, k = 1)$nn.idx
 route_lds = (from = origin_lds, to = destination)
 ```
 
-Note: you can test all of these things work by running the following command:
+<!-- Note: you can test all of these things work by running the following command: -->
 
-```{r, eval=FALSE}
-source("https://raw.githubusercontent.com/ITSLeeds/highways-course/master/README.R")
-```
+<!-- ```{r, eval=FALSE} -->
+<!-- source("https://raw.githubusercontent.com/ITSLeeds/highways-course/master/README.R") -->
+<!-- ``` -->
 
-Bonus: find the route from Leeds rail station 
-(see the code in `README.R` on the course website at https://github.com/ITSLeeds/highways-course )
-
-## References
+<!-- Bonus: find the route from Leeds rail station  -->
+<!-- (see the code in `README.R` on the course website at https://github.com/ITSLeeds/highways-course ) -->
