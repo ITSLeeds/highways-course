@@ -27,7 +27,7 @@ station):
 
   - Introduction to R
   - How to use RStudio (practical in groups of 2)
-  - Working with data frames
+  - R classes and working with data frames (CC)
 
 11:15-12:30 Statistics and packages
 
@@ -51,6 +51,8 @@ station):
     handouts
   - [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1):
     1 to 3 in the hand-outs
+  - Bonus (relies on internet/data): try to read-in and analyse datasets
+    you use at work as data frames or sf objects.
 
 15:15-16:30 Real-work example and consolidation
 

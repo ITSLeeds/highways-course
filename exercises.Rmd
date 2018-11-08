@@ -1,0 +1,85 @@
+---
+output: github_document
+---
+
+<!-- Note: edit the .Rmd file not the .md file -->
+
+## 1.1
+
+## 1.1a
+
+1. In groups of 2:
+1. Create a new RStudio project
+1. Create an R script
+1. Identify and interact with each of the 4 panels in RStudio
+1. Get help on the plot function with `?plot`
+1. Create a plot using the `plot()` function
+1. Find and install a new package on a topic of your choice with `Tools > Install Packages` (requires internet)
+1. Attach the package using `library()`
+1. Find and install a new package with `install.packages()`
+1. In your source panel write code that creates vector objects `x` and `y` and plots them with `plot(x, y)` to create something that looks like this:
+<!-- (is it reproducible?) -->
+
+```{r}
+# hint: create an object called x with the following code:
+x = c(1, 2, 3, 6)
+```
+
+```{r, echo=FALSE}
+y = x^2
+plot(x, y)
+```
+
+- Bonus: find out exactly what R version you are using (tip: use a search engine!)
+
+- Bonus: use R to find out how many minutes you've been alive for. Feel free to use an invented age. Tip: try using both 'base' `as.POSIXct()` and 'tidyverse' `ymd_hm()` functions - you may also need to search online for this.
+    
+```{r, eval=FALSE, echo=FALSE}
+date_of_birth1 = as.POSIXct("1985-12-20 12:00")
+date_of_birth2 = ISOdatetime(
+  year = 1985,
+  month = 12,
+  day = 20,
+  hour = 12,
+  min = 0,
+  sec = 0
+)
+date_of_birth3 = lubridate::ymd_hm("1985-12-20 12:00")
+current_time = Sys.time()
+diff_days = current_time - date_of_birth1
+diff_days * 24 * 60
+difftime(current_time, date_of_birth1, units = "m")
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
+devtools::install_github("ITSLeeds/stats19")
+stats19::dl_stats19_2017_ac()
+ac17 = stats19::read_stats19_2005_2014_ac(data_dir = "dftRoadSafetyData_Accidents_2017", filename = "Acc.csv")
+ac17 = stats19::format_stats19_2016_ac(ac17)
+ac17
+View(ac17)
+ac_wy = ac17[ac17$Police_Force == "West Yorkshire", ]
+ac_wy = dplyr::filter(ac17, Police_)
+library(tidyverse)
+ac_wy = ac17 %>% 
+  filter(Police_Force == "West Yorkshire")
+plot(ac_wy$Longitude, ac_wy$Latitude)
+```
+
+## 1.1b
+
+1. What class is each of these objects:
+    ```{r}
+    x = 1:6
+    y = x^2
+    z = y + 0.1
+    ```
+    ```{r, echo=FALSE, eval=FALSE}
+    class(x)
+    typeof(x)
+    is.vector(x)
+    ```
+1. How many are in the `ac_wy` data frame?
+
+
