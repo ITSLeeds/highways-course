@@ -196,14 +196,16 @@ library(tidyverse)
 The overall route assuming you’re travelling from London:
 
 ``` r
+uk = spData::world %>% 
+  filter(name_long == "United Kingdom")
 origin_lnd = c(-0.1, 51.5)
 destination = c(-1.55, 53.8)
 odmatrix = matrix(c(origin_lnd, destination), ncol = 2, byrow = TRUE)
 line_lnd = st_linestring(odmatrix) %>% 
   st_sfc() %>% 
   st_sf(crs = 4326)
-m1 = tmap::qtm(line_lnd)
-tmap::tmap_leaflet(m1)
+plot(st_geometry(uk), col = "grey")
+plot(line_lnd, add = TRUE, lwd = 5, col = "red")
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
