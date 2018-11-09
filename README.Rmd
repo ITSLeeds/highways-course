@@ -194,7 +194,7 @@ line_lnd = st_linestring(odmatrix) %>%
   st_sfc() %>% 
   st_sf(crs = 4326)
 plot(st_geometry(uk), col = "grey")
-plot(line_lnd, add = TRUE, lwd = 5, col =)
+plot(line_lnd, add = TRUE, lwd = 5, col = "red")
 ```
 
 
