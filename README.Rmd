@@ -22,7 +22,7 @@ knitr::purl("README.Rmd")
 
 ## Aim
 
-The aim of R for Highways Research and Transport Planning is to provide content for a 2 day course on R and transport data with R.
+The aim of R for Highways Research and Transport Planning is to teach how R can be used as a powerful tool for processing, visualising and modelling transport data.
 
 Course contents can be found online at: https://github.com/ITSLeeds/highways-course
 
