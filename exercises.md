@@ -3,9 +3,9 @@
 
 ## 1.1
 
-## 1.1a
+### 1.1a
 
-1.  In groups of 2:
+1.  Get into groups of 2 and, in those groups:
 2.  Create a new RStudio project
 3.  Create an R script
 4.  Identify and interact with each of the 4 panels in RStudio
@@ -36,12 +36,62 @@ x = c(1, 2, 3, 6)
     `as.POSIXct()` and ‘tidyverse’ `ymd_hm()` functions - you may also
     need to search online for this.
 
-## 1.1b
+### 1.1b
 
 1.  What class is each of these objects:
     
     ``` r
     x = 1:6
+    y = x^2
+    z = y + 0.1
     ```
 
 2.  How many are in the `ac_wy` data frame?
+
+<!-- end list -->
+
+``` r
+# to be continued...
+```
+
+## 2
+
+1.  Use `sessionInfo()` to find out what which packages are currently
+    attached in your R session.
+
+<!-- end list -->
+
+  - How many are there?
+  - Run the command `devtools::session_info()`. What’s different about
+    the result?
+
+<!-- end list -->
+
+1.  Attach the tidyverse package. What does each of the messages
+        mean?:
+    
+        ## ── Attaching packages ────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+    
+        ## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+        ## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+        ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+        ## ✔ readr   1.1.1     ✔ forcats 0.3.0
+    
+        ## ── Conflicts ───────────────────────────────────────────────────────── tidyverse_conflicts() ──
+        ## ✖ dplyr::filter() masks stats::filter()
+        ## ✖ dplyr::lag()    masks stats::lag()
+
+2.  How many packages are now attached?
+
+3.  Restart your R session and load some **tidyverse** packages
+    individually. Start with **readr**, **dplyr** and **ggplot2** and
+    add more if you need them.
+
+4.  Create a barplot showing the number and proportion of crashes in the
+    `ac_wy` dataset on different types of roads using **ggplot2**:
+
+<!-- end list -->
+
+  - Roads with different speed limits (absolute counts and proportions)
+  - Different road types (A roads, B roads etc)
+    ![](exercises_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->

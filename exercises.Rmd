@@ -6,9 +6,9 @@ output: github_document
 
 ## 1.1
 
-## 1.1a
+### 1.1a
 
-1. In groups of 2:
+1. Get into groups of 2 and, in those groups:
 1. Create a new RStudio project
 1. Create an R script
 1. Identify and interact with each of the 4 panels in RStudio
@@ -67,7 +67,7 @@ ac_wy = ac17 %>%
 plot(ac_wy$Longitude, ac_wy$Latitude)
 ```
 
-## 1.1b
+### 1.1b
 
 1. What class is each of these objects:
     ```{r}
@@ -81,5 +81,39 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
     is.vector(x)
     ```
 1. How many are in the `ac_wy` data frame?
+
+```{r}
+# to be continued...
+```
+
+## 2
+
+1. Use `sessionInfo()` to find out what which packages are currently attached in your R session.
+  - How many are there?
+  - Run the command `devtools::session_info()`. What's different about the result?
+1. Attach the tidyverse package. What does each of the messages mean?:
+    ```{r, echo=FALSE}
+    library(tidyverse)
+    ```
+1. How many packages are now attached?
+1. Restart your R session and load some **tidyverse** packages individually. Start with **readr**, **dplyr** and **ggplot2** and add more if you need them.
+1. Create a barplot showing the number and proportion of crashes in the `ac_wy` dataset on different types of roads using **ggplot2**:
+  - Roads with different speed limits (absolute counts and proportions)
+  - Different road types (A roads, B roads etc)
+    ```{r, echo=FALSE, message=FALSE}
+    ac_wy = readr::read_csv("ac_wy.csv")
+    ggplot(ac_wy, aes(Speed_limit)) + geom_bar()
+    # ggplot(ac_wy, aes(Speed_limit)) +
+    #   geom_bar(mapping = aes(y = ..prop.. * 100)) +
+    #   ylab("Percentage of roads")
+    # ggplot(ac_wy, aes(`1st_Road_Class`)) +
+    #   geom_bar() 
+    # speed_table = table(ac_wy$`1st_Road_Class`)
+    # speed_proportional = speed_table / nrow(ac_wy) * 100
+    # speed_table_df = as.data.frame(speed_proportional) 
+    # ggplot(speed_table_df, aes(Var1, Freq)) +
+    #   geom_bar(stat = "identity")
+    ``` 
+  
 
 
