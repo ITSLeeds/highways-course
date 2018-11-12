@@ -2,19 +2,27 @@
 output: github_document
 ---
 
+```{r, echo=FALSE}
+wd_old = getwd()
+if(!dir.exists("data")) {
+  setwd("..")
+}
+```
+
+
 MIDAS data was downloaded with the [oneminutetrafficdata](https://github.com/RACFoundation/oneminutetrafficdata) package.
 Code to access the data can be found at [github.com/jmanning1/Traffic_Code](https://github.com/jmanning1/Traffic_Code) (script file [004](https://github.com/jmanning1/Traffic_Code/blob/master/Code/004_Download_MIDAS_Gold_Traffic_Data_2016.R) downloads the data, `R.utils::bunzip2()` can unzip them).
 A sample of open MIDAS data (and many other datasets can be found [here](https://odileeds.org/blog/2016-10-07-highwayshack-datasets).
 
-We will use the **tidyverse** package to analyse the data:
+We will use the **tidyverse** package to analyse the data and **sf** to do geographic analysis:
 
 ```{r, message=FALSE}
+library(sf)
+library(tmap)
 library(tidyverse)
 ```
 
 Some cleaning was done (clean names were created with the **snakecase** package) but the fundamentals of the following code should work with many MIDAS-derived datasets:
-
-
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -48,6 +56,12 @@ What's the average speed in each lane of traffic, for example?:
 mean(midas_sample$average_speed_lane_1)
 ```
 
+What is the distribution of speeds over time?
+
+```{r}
+plot(midas_sample$time_gmt / (60^2), midas_sample$average_speed_lane_1)
+```
+
 We can investigate the distribution of speeds visually by plotting the data:
 
 ```{r}
@@ -55,5 +69,53 @@ ggplot(midas_sample) +
   geom_violin(aes(x = geographic_address, y = average_speed_lane_1))
 ```
 
+## Joining with geographic data
 
+The data is clearly temporal but it also has a spatial element, identified by the geographic address column:
+
+```{r}
+unique(midas_sample$geographic_address)
+```
+
+We need a separate geographic object to 'geolocate' these sites.
+This is provided in the `midas_sites.geojson` file, which can be imported as follows:
+
+```{r}
+midas_sites = read_sf("data/midas_sites.geojson")
+st_crs(midas_sites)
+```
+
+These can then be plotted, e.g. with:
+
+```{r}
+plot(midas_sites$geometry)
+```
+
+To add context we need a basemap.
+That can be added as follows:
+
+```{r}
+tmap_mode("view")
+qtm(midas_sites)
+```
+
+## Site summaries
+
+```{r}
+midas_means = midas_sample %>% 
+  group_by(geographic_address) %>% 
+  summarise_if(is.numeric, mean)
+```
+
+We can plot these average speeds as follows, after joining the results with the geographic data:
+
+```{r}
+midas_joined = left_join(midas_sites, midas_means)
+tm_shape(midas_joined) +
+  tm_bubbles(col = "average_speed_lane_1", size = 5)
+```
+
+```{r, echo=FALSE}
+setwd(wd_old)
+```
 
