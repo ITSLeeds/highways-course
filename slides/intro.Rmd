@@ -1,7 +1,7 @@
 ---
 title: 'R for Highways Research and Transport Planning'
 subtitle: "Introduction"
-author: "Robin Lovelace Institue for Transport Studies (ITS)"
+author: "Robin Lovelace Institute for Transport Studies (ITS)"
 date: "University of Leeds, `r Sys.Date()`."
 output:
   ioslides_presentation:
@@ -112,6 +112,8 @@ Everything that happens is a function
 exp(x)
 sqrt(z)
 ```
+
+<!-- This overflows the page. Doesn't matter much -->
 
 ## An introduction to RStudio
 
