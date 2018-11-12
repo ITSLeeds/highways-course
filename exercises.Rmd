@@ -10,7 +10,7 @@ output: github_document
 
 1. Get into groups of 2 and, in those groups:
 1. Create a new RStudio project
-1. Create an R script
+1. Create a new blank R script
 1. Identify and interact with each of the 4 panels in RStudio
 1. Get help on the plot function with `?plot`
 1. Create a plot using the `plot()` function
@@ -21,7 +21,7 @@ output: github_document
 <!-- (is it reproducible?) -->
 
 ```{r}
-# hint: create an object called x with the following code:
+# hint: create a vector object of the numbers 1, 2, 3 and 6 and call it x:
 x = c(1, 2, 3, 6)
 ```
 
@@ -80,7 +80,9 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
     typeof(x)
     is.vector(x)
     ```
-1. How many are in the `ac_wy` data frame?
+1. How many rows are in the `ac_wy` data frame?
+
+1. How many lists are in the `ac_wy` data frame?
 
 ```{r}
 # to be continued...
