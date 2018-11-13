@@ -4,7 +4,7 @@ output: github_document
 
 <!-- Note: edit the .Rmd file not the .md file -->
 
-## 1.1
+## 1.1 R and RStudio
 
 ### 1.1a
 
@@ -67,7 +67,7 @@ ac_wy = ac17 %>%
 plot(ac_wy$Longitude, ac_wy$Latitude)
 ```
 
-### 1.1b
+### 1.1b R classes
 
 1. What class is each of these objects:
     ```{r}
@@ -102,8 +102,9 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
 # to be continued...
 ```
 
-## 2
+## 2 Stats refresher and packages
 
+1. Discuss in groups: what kind of statistical analysis do you you do, exploratory or hypothesis testing?
 1. Use `sessionInfo()` to find out what which packages are currently attached in your R session.
   - How many are there?
   - Run the command `devtools::session_info()`. What's different about the result?
@@ -112,7 +113,11 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
     library(tidyverse)
     ```
 1. How many packages are now attached?
-1. Restart your R session and load some **tidyverse** packages individually. Start with **readr**, **dplyr** and **ggplot2** and add more if you need them.
+1. Restart your R session and load some **tidyverse** packages individually. Start with **readr**, **dplyr** and **ggplot2**.
+1.  Run `ggplot(data = mpg)`. What do you see?
+1.  What does the `drv` variable describe?  Read the help for `?mpg` to find
+    out.
+1.  Make a scatterplot of `hwy` vs `cyl`.
 1. Create a barplot showing the number and proportion of crashes in the `ac_wy` dataset on different types of roads using **ggplot2**:
   - Roads with different speed limits (absolute counts and proportions)
   - Different road types (A roads, B roads etc)
