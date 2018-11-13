@@ -7,7 +7,7 @@
 
 1.  Get into groups of 2 and, in those groups:
 2.  Create a new RStudio project
-3.  Create an R script
+3.  Create a new blank R script
 4.  Identify and interact with each of the 4 panels in RStudio
 5.  Get help on the plot function with `?plot`
 6.  Create a plot using the `plot()` function
@@ -17,12 +17,13 @@
 9.  Find and install a new package with `install.packages()`
 10. In your source panel write code that creates vector objects `x` and
     `y` and plots them with `plot(x, y)` to create something that looks
-    like this: <!-- (is it reproducible?) -->
+    like this:
+<!-- (is it reproducible?) -->
 
 <!-- end list -->
 
 ``` r
-# hint: create an object called x with the following code:
+# hint: create a vector object of the numbers 1, 2, 3 and 6 and call it x:
 x = c(1, 2, 3, 6)
 ```
 
@@ -42,17 +43,29 @@ x = c(1, 2, 3, 6)
     
     ``` r
     x = 1:6
-    y = x^2
+    y = sqrt(x)
     z = y + 0.1
+    z[3] = "hello"
     ```
 
-2.  How many are in the `ac_wy` data frame?
+2.  Create a data frame that contains variables `x`, `y` and `z` and
+    write it out as a `.csv` file.
+    
+      - Bonus create a matrix composed of `x`, `y` and `z` variables.
+        What type does it have?
 
-<!-- end list -->
+3.  Download and read-in the `ac_wy.csv` dataset using `read_csv()`.
+    Hint, the following command may help get
+    it:
+    
+    ``` r
+    f = "https://github.com/ITSLeeds/highways-course/releases/download/0.2/ac_wy.csv"
+    download.file(url = f, destfile = "ac_wy.csv")
+    ```
 
-``` r
-# to be continued...
-```
+4.  How many rows are in the `ac_wy` data frame?
+
+5.  How many lists are in the `ac_wy` data frame?
 
 ## 2
 
@@ -70,14 +83,14 @@ x = c(1, 2, 3, 6)
 1.  Attach the tidyverse package. What does each of the messages
         mean?:
     
-        ## ── Attaching packages ────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+        ## ── Attaching packages ──────────────────────────────────── tidyverse 1.2.1 ──
     
         ## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
         ## ✔ tibble  1.4.2     ✔ dplyr   0.7.8
         ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
         ## ✔ readr   1.1.1     ✔ forcats 0.3.0
     
-        ## ── Conflicts ───────────────────────────────────────────────────────── tidyverse_conflicts() ──
+        ## ── Conflicts ─────────────────────────────────────── tidyverse_conflicts() ──
         ## ✖ dplyr::filter() masks stats::filter()
         ## ✖ dplyr::lag()    masks stats::lag()
 
@@ -94,4 +107,4 @@ x = c(1, 2, 3, 6)
 
   - Roads with different speed limits (absolute counts and proportions)
   - Different road types (A roads, B roads etc)
-    ![](exercises_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+    ![](exercises_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->

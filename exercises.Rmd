@@ -72,19 +72,33 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
 1. What class is each of these objects:
     ```{r}
     x = 1:6
-    y = x^2
+    y = sqrt(x)
     z = y + 0.1
+    z[3] = "hello"
     ```
     ```{r, echo=FALSE, eval=FALSE}
     class(x)
+    class(y)
+    class(z)
     typeof(x)
     is.vector(x)
+    data.frame(x, y, z)
+    m = cbind(x, y, z)
+    class(m)
+    typeof(m)
+    ```
+1. Create a data frame that contains variables `x`, `y` and `z` and write it out as a `.csv` file.
+    - Bonus create a matrix composed of `x`, `y` and `z` variables. What type does it have?
+1. Download and read-in the `ac_wy.csv` dataset using `read_csv()`. Hint, the following command may help get it:
+    ```{r, eval=FALSE}
+    f = "https://github.com/ITSLeeds/highways-course/releases/download/0.2/ac_wy.csv"
+    download.file(url = f, destfile = "ac_wy.csv")
     ```
 1. How many rows are in the `ac_wy` data frame?
 
 1. How many lists are in the `ac_wy` data frame?
 
-```{r}
+```{r, echo=FALSE}
 # to be continued...
 ```
 
