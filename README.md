@@ -27,6 +27,7 @@ station):
 09:30-11:00 Introduction to the course and software
 
   - Introduction to R
+  - R installation questions/debugging
   - How to use RStudio (practical in groups of 2)
   - R classes and working with data frames (CC)
 
@@ -44,16 +45,19 @@ station):
 
   - Spatial data in R
   - R’s spatial ecosystem (see section [1.4 of Geocomputation with R -
-    the ecosystem
-    data](https://geocompr.robinlovelace.net/intro.html#rs-spatial-ecosystem))
+    package
+    ecosystem](https://geocompr.robinlovelace.net/intro.html#rs-spatial-ecosystem))
   - Practical: [Section 3.2
     to 3.2.2](https://geocompr.robinlovelace.net/attr.html#vector-attribute-manipulation)
     of
     handouts
   - [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1):
     1 to 3 in the hand-outs
-  - Bonus (relies on internet/data): try to read-in and analyse datasets
-    you use at work as data frames or sf objects.
+  - Further reading:
+    [Chapter 2](https://geocompr.robinlovelace.net/spatial-class.html)
+    of Geocomputation with R.
+  - Bonus (relies on internet/data): read-in and analyse datasets you
+    use at work as data frames or sf objects.
 
 15:15-16:30 Real-work example and consolidation
 
