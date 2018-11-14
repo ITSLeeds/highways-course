@@ -8,7 +8,7 @@ output:
     transition: slower
 widescreen: true
 logo: its-logo-square.png
-bibliography: /home/robin/allrefs.bib
+bibliography: refs.bib
 ---
 
 ```{r, echo=FALSE, eval=FALSE}

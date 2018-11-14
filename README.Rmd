@@ -18,6 +18,11 @@ knitr::opts_chunk$set(
 file.rename("README.docx", "highways-course.docx")
 piggyback::pb_upload("highways-course.docx")
 knitr::purl("README.Rmd")
+
+# to concatenate files (in bash)
+cat slides/intro.Rmd slides/stats-pkgs.Rmd README.Rmd > /tmp/all.Rmd
+
+citr::tidy_bib_file(rmd_file = "/tmp/all.Rmd", messy_bibliography = "~/allrefs.bib", file = "slides/refs.bib")
 ```
 
 ## Aim
