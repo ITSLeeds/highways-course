@@ -54,8 +54,9 @@ station):
   - [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1):
     1 to 3 in the hand-outs
   - Further reading:
-    [Chapter 2](https://geocompr.robinlovelace.net/spatial-class.html)
-    of Geocomputation with R.
+    [Chapter 7](https://geocompr.robinlovelace.net/read-write.html) of
+    Geocomputation with R - data import/export and
+    [exercises](https://geocompr.robinlovelace.net/read-write.html)
   - Bonus (relies on internet/data): read-in and analyse datasets you
     use at work as data frames or sf objects.
 

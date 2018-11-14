@@ -80,7 +80,7 @@ ml
 - R's spatial ecosystem (see section [1.4 of Geocomputation with R - package ecosystem](https://geocompr.robinlovelace.net/intro.html#rs-spatial-ecosystem))
 - Practical: [Section 3.2 to 3.2.2](https://geocompr.robinlovelace.net/attr.html#vector-attribute-manipulation) of handouts
 - [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1): 1 to 3 in the hand-outs
-- Further reading: [Chapter 2](https://geocompr.robinlovelace.net/spatial-class.html) of Geocomputation with R.
+- Further reading: [Chapter 7](https://geocompr.robinlovelace.net/read-write.html) of Geocomputation with R - data import/export and [exercises](https://geocompr.robinlovelace.net/read-write.html)
 - Bonus (relies on internet/data): read-in and analyse datasets you use at work as data frames or sf objects. 
   
 15:15-16:30 Real-work example and consolidation

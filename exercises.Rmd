@@ -106,8 +106,8 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
 
 1. Discuss in groups: what kind of statistical analysis do you you do, exploratory or hypothesis testing?
 1. Use `sessionInfo()` to find out what which packages are currently attached in your R session.
-  - How many are there?
-  - Run the command `devtools::session_info()`. What's different about the result?
+    - How many are there?
+    - Run the command `devtools::session_info()`. What's different about the result?
 1. Attach the tidyverse package. What does each of the messages mean?:
     ```{r, echo=FALSE}
     library(tidyverse)
@@ -136,5 +136,43 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
     #   geom_bar(stat = "identity")
     ``` 
   
+# 3 Spatial data
 
+1. Practical: [Section 3.2 to 3.2.2](https://geocompr.robinlovelace.net/attr.html#vector-attribute-manipulation) of handouts
 
+1. Work through exercises 1:3 in the hand-outs
+1. How many states:
+    - Contain the letter E (hint: `?grepl`)?
+    - Start with A (hint: search for "regex starts with")?
+1. Plot all the 'E' states in red and plot the 'A' states with a thick border.
+    ```{r, message=FALSE, echo=FALSE}
+    library(sf)
+    library(spData)
+    library(dplyr)
+    us_e = us_states %>% 
+      filter(grepl(pattern = "e", x = NAME, ignore.case = T))
+    us_a = us_states %>% 
+      filter(grepl(pattern = "^A", x = NAME))
+    plot(us_states$geometry)
+    plot(us_e$geometry, col = "red", add = TRUE)
+    plot(us_a$geometry, lwd = 5, add = TRUE)
+    ```
+- Bonus: use the `world` dataset to find the top 3 smallest and largest countries in the world by population and area, and plot them on a single map.
+
+## 4 Spatial data II and roadworks
+
+1. Practical: working-through sections [3.2.3 to 3.2.4](https://geocompr.robinlovelace.net/attr.html#vector-attribute-joining) of hand-outs
+1. [Exercises](https://geocompr.robinlovelace.net/attr.html#exercises-1): 4 to 6 onwards
+1. Identify the states that grew most and least from 2010 to 2015 and plot them.
+    ```{r, message=FALSE, echo=FALSE}
+    library(tmap)
+    us_states$change = us_states$total_pop_15 - us_states$total_pop_10
+    us_states$growth = NA
+    top3 = tail(order(us_states$change), 3)
+    bot3 = head(order(us_states$change), 3)
+    us_states$growth[top3] = "Most"
+    us_states$growth[bot3] = "Least"
+    tm_shape(us_states) +
+      tm_polygons("growth")
+    ```
+1. Advanced option: Section [4.2 - Spatial operations on vector data](https://geocompr.robinlovelace.net/spatial-operations.html#spatial-vec) of Geocomputation with R
