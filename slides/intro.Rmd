@@ -54,7 +54,7 @@ knitr::include_graphics("screenshot-highways.png")
 
 ## What is R?
 
-From the horse's mounth [@rcoreteam_language_2018], "R is an integrated suite of software facilities for data manipulation, calculation and graphical display. Among other things it has
+From the horse's mouth [@rcoreteam_language_2018], "R is an integrated suite of software facilities for data manipulation, calculation and graphical display. Among other things it has
 
 > - an effective data handling and storage facility,
 > - a suite of operators for calculations on arrays, in particular matrices,
