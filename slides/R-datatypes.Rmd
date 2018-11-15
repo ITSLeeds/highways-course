@@ -1,0 +1,214 @@
+---
+title: 'R for Highways Research and Transport Planning'
+subtitle: "R datatypes"
+author: "Colin Caine, School of Geography"
+date: "University of Leeds, `r Sys.Date()`."
+output: ioslides_presentation
+widescreen: true
+logo: its-logo-square.png
+---
+
+```{r, echo=FALSE, eval=FALSE}
+file.copy("slides/R-datatypes.html", ".", T)
+piggyback::pb_upload("R-datatypes.html")
+```
+
+## Learning objectives
+
+- Know and understand the basic R types
+  - Appreciate how they correspond to formats you are already familiar with (e.g. csv)
+- Understand vectorisation
+- Be able to filter and select from R types
+
+## What types are these?
+
+```{r}
+x = 1
+x
+y = c(1, 2, 3, 9, 8, 7)
+y
+```
+
+## What types are these?
+
+```{r}
+x = 1
+typeof(x)
+y = c(1, 2, 3, 9, 8, 7)
+typeof(y)
+```
+
+What's funny about this?
+
+<!--
+What's a double?
+  Double precision float IEEE 754.
+Why not integer?
+  R assumes numeric data is
+Why the same for scalar and vector?
+-->
+
+## What's a double?
+
+> - A way of encoding a wide range of numbers (0.025, 10 million and 1, 1.4032e36)
+> - May be an approximation
+> - Double precision floating point number (IEEE 754)
+
+## Why not an integer?
+
+- A double is generally what you want
+
+> - Just don't worry about it
+
+## A vector programming language
+
+```{r}
+# Vector creation shorthand
+1:10
+```
+
+```{r, eval=F}
+# Vector-scalar multiplication
+1:10 * 2
+# Vector-vector multiplication
+1:3 * 1:3
+```
+
+## A vector programming language
+
+```{r}
+# Vector scalar multiplication
+1:10 * 2
+# Vector-vector multiplication
+1:10 * 1:10
+```
+
+- It's **not** the dot or cross product
+
+## *Why* a vector programming language?
+
+- *Element-wise* operation is handily expressive
+- End up operating on whole columns or tables at once
+- Usually what you want in stats
+
+```{r}
+# Center a distribution on 0 and compress it's spread
+x = 0:10
+(x - mean(x)) / 2
+```
+
+
+## The common atomic vector types
+
+```{r}
+typeof(c("a", "b", "sea"))
+typeof(c(TRUE, FALSE, TRUE))
+typeof(1:10)
+typeof(c(1, 2, 3))
+```
+
+
+## Why atomic?
+
+- They can only contain values of a single type
+
+
+## What other data types might we need?
+
+- Can you represent the data you use at work as vectors?
+
+> - What about GPS traces?
+
+## Lists
+
+- Collect many vectors together (e.g. GPS traces)
+- Or a list of values of different data types (e.g. a csv)
+
+```{r}
+list(c(1, 2, 3, 4), c("one", "two", "three", "four"))
+
+users = 1:100
+gps_traces = list(list(x = c(1, 1, 1, 2, 2, 1, 1), y = c(5, 4, 5, 5, 6, 7, 6)))
+```
+
+## Extracting items
+
+```{r}
+x = c(1, 2, 3)
+x[1] # subset vector by index
+x[c(1,2)] # subset by vector
+x[x > 1] # subset by logical vector
+```
+
+## Extracting items
+
+With lists we sometimes use `[[` instead
+
+`[` subsets the object so we end up with the same type of object back
+
+```{r}
+y = list(1:3, c(1, 10, 50))
+y[1]
+y[[1]]
+```
+
+## Extracting items
+
+```{r}
+y[1][1]
+y[[1]][1]
+y[[1]][[1]]
+```
+
+## Extracting items
+
+Index by name. Is this like `[` or `[[`?
+
+```{r}
+y = list(ids = 1:3, price = c(1, 10, 50))
+y$ids
+y$price
+```
+
+
+## Data frames
+
+<div style="float: left; width: 50%;">
+
+Most famous of R's types
+
+Represents a table of data e.g.
+
+```{r, echo=FALSE}
+library(ggplot2)
+as.data.frame(mpg[1:10,1:2])
+```
+
+</div>
+
+<div style="float: left; width: 50%;">
+
+> - What does this look most like?
+> - It's mostly just a list of vectors
+> - But all the vectors must be the same length
+> - You'll see a lot of these later
+
+</div>
+
+## Gotchas
+
+```{r}
+TRUE == T
+FALSE == F
+c(1, 2, "three")
+1 == "1"
+```
+
+
+<!--
+Deliberately not covered due to time constraints:
+
+- Matrices
+- Functions/closures
+- OOP stuff
+-->
