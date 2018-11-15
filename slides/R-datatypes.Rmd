@@ -20,6 +20,7 @@ piggyback::pb_upload("R-datatypes.html")
 - Understand vectorisation
 - Be able to filter and select from R types
 
+
 ## What types are these?
 
 ```{r}
@@ -51,7 +52,8 @@ Why the same for scalar and vector?
 ## What's a double?
 
 > - A way of encoding a wide range of numbers (0.025, 10 million and 1, 1.4032e36)
-> - May be an approximation
+> - Fraction * exponent (0.25 * 10e-1, 1 * 10e7)
+> - The fraction may be an approximation
 > - Double precision floating point number (IEEE 754)
 
 ## Why not an integer?
@@ -80,10 +82,20 @@ Why the same for scalar and vector?
 # Vector scalar multiplication
 1:10 * 2
 # Vector-vector multiplication
-1:10 * 1:10
+1:3 * 1:3
 ```
 
 - It's **not** the dot or cross product
+
+## A vector programming language
+
+```{r}
+# ???
+1:10 * 1:5
+```
+
+> - "broadcasting"
+> - "recycling"
 
 ## *Why* a vector programming language?
 
@@ -134,10 +146,16 @@ gps_traces = list(list(x = c(1, 1, 1, 2, 2, 1, 1), y = c(5, 4, 5, 5, 6, 7, 6)))
 ## Extracting items
 
 ```{r}
-x = c(1, 2, 3)
+x = 1:3 * 33
 x[1] # subset vector by index
 x[c(1,2)] # subset by vector
-x[x > 1] # subset by logical vector
+```
+
+## Extracting items
+
+```{r}
+x > 45
+x[x > 45] # subset by logical vector
 ```
 
 ## Extracting items
@@ -175,13 +193,12 @@ y$price
 
 <div style="float: left; width: 50%;">
 
-Most famous of R's types
-
-Represents a table of data e.g.
+ - Most famous of R's types
+ - Represents a table of data e.g:
 
 ```{r, echo=FALSE}
 library(ggplot2)
-as.data.frame(mpg[1:10,1:2])
+as.data.frame(unique(mpg[1:2])[1:10,])
 ```
 
 </div>
@@ -194,6 +211,36 @@ as.data.frame(mpg[1:10,1:2])
 > - You'll see a lot of these later
 
 </div>
+
+## Tibbles
+
+- Generally prefer tibbles
+
+```{r, echo=FALSE}
+mpg
+```
+
+## Get data from dataframes and tibbles
+
+```{r, eval=FALSE}
+library(ggplot2) # provides the mpg dataset
+mpg[c(1,2)] # Select columns 1 and 2
+mpg[3:5] # Columns 3, 5
+mpg[1:10, 1:2] # Columns 1 and 2 of rows 1-10
+```
+
+
+## Review
+
+> - Four common vector types
+>   - integer, double, logical, character
+> - Operations are element-wise
+> - Use tibbles to represent data tables
+> - Use lists when you want to mix objects of different types
+>   - Or collect collections of different lengths
+> - subset collections with `[`
+> - extract items from collections with `[[` and `$name`
+
 
 ## Gotchas
 
