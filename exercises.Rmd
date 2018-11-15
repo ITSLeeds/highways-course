@@ -48,7 +48,7 @@ date_of_birth3 = lubridate::ymd_hm("1985-12-20 12:00")
 current_time = Sys.time()
 diff_days = current_time - date_of_birth1
 diff_days * 24 * 60
-difftime(current_time, date_of_birth1, units = "m")
+difftime(current_time, date_of_birth1, units = "s")
 ```
 
 

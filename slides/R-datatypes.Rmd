@@ -11,6 +11,7 @@ logo: its-logo-square.png
 ```{r, echo=FALSE, eval=FALSE}
 file.copy("slides/R-datatypes.html", ".", T)
 piggyback::pb_upload("R-datatypes.html")
+piggyback::pb_upload("2017-12-01--2017-12-07.7z")
 ```
 
 ## Learning objectives

@@ -216,6 +216,23 @@ plot(line_lnd, add = TRUE, lwd = 5, col = "red")
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
+## Shortcut keys:
+
+``` r
+# Useful shortkeys --------------------------------------------------------
+
+# Tab-Autocomplete
+# Alt-Up/Down: move current line (shift copies it)
+# Ctl-Shift-C: Comment line
+# Ctl-Shift-R: Add section
+# Ctl-Shift-m %>% %>% %>% %>% %>% %>% %>% %>% %>% 
+# Ct1-1/2 put cursor in source/console
+# Ctl-Alt-T Execute as system command, e.g.:
+# cp -Rv * /tmp
+# Ctl-Alt-Down: duplicate cursor
+# Alt-Shift-K: show autocomplete keys!
+```
+
 <!-- Note: you can test all of these things work by running the following command: -->
 
 <!-- ```{r, eval=FALSE} -->
