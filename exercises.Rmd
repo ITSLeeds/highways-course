@@ -175,4 +175,27 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
     tm_shape(us_states) +
       tm_polygons("growth")
     ```
-1. Advanced option: Section [4.2 - Spatial operations on vector data](https://geocompr.robinlovelace.net/spatial-operations.html#spatial-vec) of Geocomputation with R
+1. Create an obect that represents the boundary of the USA.
+- Bonus: create a random distribution of 1000 points across the United States and subset those that are in Texas. Plot the results to check your code works, does it look something like this?
+    ```{r, message=FALSE, echo=FALSE}
+    us_union = st_union(us_states)
+    xran = runif(n = 1000, min = st_bbox(us_states)[1], max = st_bbox(us_states)[3])
+    yran = runif(n = 1000, min = st_bbox(us_states)[2], max = st_bbox(us_states)[4])
+    mran_sample = st_sample(us_states, 1000)
+    mran = data.frame(xran, yran, n = 1:1000)
+    crs_us = st_crs(us_states)
+    mran_sf = st_as_sf(mran, coords = c("xran", "yran"), crs = crs_us)
+    # st_crs(mran_sample)
+    mran_sf = st_sf(geometry = mran_sample)
+    tex = us_states %>% 
+      filter(NAME == "Texas")
+    sel_tex = st_within(mran_sf, tex)
+    sel_tex_binary = lengths(sel_tex) > 0
+    mran_sf$in_texas = sel_tex_binary
+    tm_shape(us_union) +
+      tm_polygons() +
+      tm_shape(mran_sf) +
+      tm_dots(col = "in_texas", size = 0.2)
+    ```
+- Advanced option 1: Section [4.2 - Spatial operations on vector data](https://geocompr.robinlovelace.net/spatial-operations.html#spatial-vec) of Geocomputation with R
+- Advanced option 2: Install the **roadworksUK** package and identify which MSOA in Ashford had the highest number of gas-related roadworks in the `htdd_ashford` dataset.

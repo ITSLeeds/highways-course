@@ -148,6 +148,17 @@ x = c(1, 2, 3, 6)
 3.  Identify the states that grew most and least from 2010 to 2015 and
     plot them.
     ![](exercises_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
-4.  Advanced option: Section [4.2 - Spatial operations on vector
+4.  Create an obect that represents the boundary of the USA.
+
+<!-- end list -->
+
+  - Bonus: create a random distribution of 1000 points across the United
+    States and subset those that are in Texas. Plot the results to check
+    your code works, does it look something like this?
+    ![](exercises_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+  - Advanced option 1: Section [4.2 - Spatial operations on vector
     data](https://geocompr.robinlovelace.net/spatial-operations.html#spatial-vec)
     of Geocomputation with R
+  - Advanced option 2: Install the **roadworksUK** package and identify
+    which MSOA in Ashford had the highest number of gas-related
+    roadworks in the `htdd_ashford` dataset.

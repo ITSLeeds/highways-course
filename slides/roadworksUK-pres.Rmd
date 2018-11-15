@@ -1,0 +1,195 @@
+---
+title: "Digging in the street"
+subtitle: "🚧<br/>tools and analysis to unleash roadworks data"
+author: "Robin Lovelace and Malcolm Morgan, ITS Leeds"
+date: "RAC Foundation, London, 2018-11-01"
+# logo
+output:
+  xaringan::moon_reader:
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r, echo=FALSE, eval=FALSE}
+wd_old = setwd("/tmp/RtmpGIYQVR/preview-3c454d5ed18.dir/")
+f = list.files(pattern = "pres", full.names = T)
+zip(zipfile = "/tmp/pres-start.zip", files = f)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(htmltools.dir.version = FALSE)
+```
+
+## Abstract
+
+This presentation reports on the findings and outcomes of a three-month study funded by the RAC Foundation, based on data provided by Elgin, a company which hosts the website https://roadworks.org.
+The main findings on the number and type of works demonstrate the diversity of reporting conventions accross the UK, highlighting the potential for harmonisation. We'll also touch on data on 'Section 58 Restrictions'; traffic disruptions (thanks to data from TomTom); and  visitors to the roadworks.org website.
+The presentation will culminate in a live demo of the R package **roadworksUK**, software we wrote for the project.
+
+```{r}
+# knitr::include_graphics()
+```
+
+---
+background-image: url(https://media.giphy.com/media/l1cMaoSxV9KM0/giphy.gif)
+background-size: cover
+class: center, bottom, inverse
+
+???
+
+This shows us 3 things about road works: ubiquity (caused by fact roads are used for lots more than transport); impact on road users; and wider impacts.
+---
+
+# The value of visualisation/analyisis
+
+.pull-left[
+
+- It's great to have data
+
+- But it can only be used if it can be understood
+
+- And that involves visualisation
+
+- E.g. 1: Popensity to Cycle Tool: http://www.pct.bike/
+
+- E.g. 2: 'geoplumber': http://www.geoplumber.com/deck
+
+]
+
+--
+
+.pull-right[
+
+```{r}
+knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/figures/haystack.png")
+knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/figures/leed-bradford-lsoa-dutch.png")
+```
+
+```{r}
+
+```
+
+]
+
+---
+
+# Road works vs street works
+
+
+.pull-left[
+
+```{r, out.width="90%"}
+knitr::include_graphics("https://c8.alamy.com/comp/MMFX5H/bristol-uk-11th-may-2018-workmen-seen-carrying-out-overnight-resurfacing-of-the-wells-road-a37-outbound-broadfield-road-to-airport-road-on-friday-11th-may-part-of-a-larger-on-going-scheme-bristol-city-council-and-north-east-somerset-council-made-a-joint-bid-to-the-department-of-transport-for-the-local-highways-maintenance-challenge-fund-total-amount-awarded-which-includes-a-contribution-from-each-authority-is-64m-proposed-carriageway-reconstruction-a4-and-a4174-corridors-robert-timoneyalamylivenews-MMFX5H.jpg")
+```
+
+- Road works: Roadworks conducted by highway authorities (source: alamy)
+
+]
+
+--
+
+.pull-right[
+
+```{r}
+knitr::include_graphics("https://www.kentonline.co.uk/_media/img/JSUI48FJ0UR7J24EDRC5.jpg")
+```
+
+- Street works: Roadworks conducted by statutory undertakers such as utility companies (source: KentOnline)
+
+]
+
+--
+
+### We use roadworks to refer to all disruptions on the road network
+
+---
+
+# Live demo
+
+## But first: what we did + what's possible
+
+.pull-left[
+
+
+- Who has heard of 'R' (before today)?
+
+- Who understands this?:
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("devtools")
+library(devtools)
+pkg = "ITSLeeds/roadworksUK"
+install_github(pkg)
+```
+
+- R is a *programming language*
+
+]
+
+.pull-right[
+
+- Good news: it's free
+
+- And increasingly easy to use
+
+- Thanks to innovations like RStudio:
+
+<p><a href="https://www.rstudio.com/products/RStudio/?wvideo=520zbd3tij"><img src="https://embedwistia-a.akamaihd.net/deliveries/260e6e980f526abaedf8ef3378270c899da74f08.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=71a5d4e0" style="width: 400px; height: 225px;" width="400" height="225"></a></p><p><a href="https://www.rstudio.com/products/RStudio/?wvideo=520zbd3tij">RStudio IDE Overview</a></p>
+
+]
+---
+
+# What's in the box?
+
+```{r, echo=TRUE}
+library(roadworksUK)
+nrow(htdd_ashford)
+ncol(htdd_ashford)
+names(htdd_ashford)
+```
+
+---
+
+# Plotting water works
+
+```{r, echo=TRUE}
+unique(htdd_ashford$responsible_org_sector)
+water = htdd_ashford[htdd_ashford$responsible_org_sector == "Water", ]
+rw_map_interactive(water)
+```
+
+---
+
+# Aggregating waterworks
+
+```{r, echo=TRUE, message=FALSE}
+library(sf)
+htdd_sf = st_sf(htdd_ashford, geometry = htdd_ashford$i__location_point)
+msoa_water = aggregate(htdd_sf[1], msoa_ashford, FUN = length)
+```
+
+---
+
+# Plotting the result
+
+```{r, echo=TRUE}
+plot(msoa_water)
+```
+
+
+class: center, middle
+
+---
+
+# Exercises
+
+See the exercises sheet (4th set of exercises)
+
+- Focus on consolidating knowledge
+- Ask questions
+- Feel free to google
+- Custom map competition!
