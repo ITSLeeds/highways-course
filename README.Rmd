@@ -22,7 +22,32 @@ knitr::purl("README.Rmd")
 # to concatenate files (in bash)
 cat slides/intro.Rmd slides/stats-pkgs.Rmd README.Rmd > /tmp/all.Rmd
 
+# save html slides
+wd_old = setwd("slides")
+f = list.files(pattern = "spatial")
+zip(zipfile = "spatial.zip", files = f)
+f = list.files(pattern = "roadworks")
+zip(zipfile = "roadworks.zip", files = f)
+setwd(wd_old)
+
+mv -v slides/*.zip . # in bash
+
+piggyback::pb_upload("roadworks.zip")
+piggyback::pb_upload("spatial.zip")
+
 citr::tidy_bib_file(rmd_file = "/tmp/all.Rmd", messy_bibliography = "~/allrefs.bib", file = "slides/refs.bib")
+
+# save leeds data
+library(sf)
+leeds_bound = ukboundaries::leeds
+leeds = ukboundaries::msoa2011_lds
+st_crs(leeds)
+leeds_cents = st_centroid(ukboundaries::msoa2011_vsimple)[leeds, ]
+plot(leeds_cents)
+leeds = ukboundaries::msoa2011_vsimple[ukboundaries::msoa2011_vsimple$objectid %in% leeds_cents$objectid, ]
+plot(leeds)
+saveRDS(leeds, "data/leeds.Rds")
+file.size("data/leeds.Rds") / 1e6
 ```
 
 ## Aim

@@ -1,0 +1,37 @@
+---
+output: github_document
+---
+
+<!-- Note: edit the .Rmd file not the .md file -->
+
+## 5 Point data
+
+1. Starting where we left-off, complete exercises 7 and 12 from the hand-outs
+3. Read-in the dataset `leeds.Rds`
+1. Create a new column in the dataset called `area` that reports the area of each MSOA, and plot the result (hint: use `st_area()`)
+    ```{r}
+    library(sf)
+    leeds = readRDS("data/leeds.Rds")
+    leeds$area = st_area(leeds)
+    plot(leeds["area"])
+    ```
+
+2. Create an object called `ac_wy_sf`, a spatial version of the `ac_wy` dataset read-in previously (hint: use the function `st_as_sf()` and coordinate variables Location_Easting_OSGR/Location_Northing_OSGR --- don't forget to set the CRS to 27700)
+3. Plot the result, showing only the accident severity.
+    ```{r, echo=FALSE}
+    ac_wy = readRDS("ac_wy.rds")
+    ac_wy_sf = st_as_sf(ac_wy,
+                        coords = c("Location_Easting_OSGR", "Location_Northing_OSGR"),
+                        crs = 27700)
+    plot(ac_wy_sf["Accident_Severity"])
+    ```
+4. Create a new object called `ac_wy_wgs` that tranforms the `ac_wy_sf` into a geographic (lat/lon) CRS (hint: use `st_crs()` and the EPSG code 4326)
+5. Find out how many fatal crashes happened in each of the MSOA areas in Leeds
+    ```{r, echo=FALSE}
+    # library(sf)
+    # ac_wy = readRDS("ac_wy.rds")
+    # ac_wy_sf = st_as_sf(ac_wy,
+    #                     coords = c("Location_Easting_OSGR", "Location_Northing_OSGR"),
+    #                     crs = 27700)
+    # plot(ac_wy_sf["Accident_Severity"])
+    ```
