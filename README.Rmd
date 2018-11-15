@@ -118,11 +118,18 @@ ml
 
 **Day 2 transport data**
 
-09:30-11:00 An introduction to point (Stats19) data
+09:30-11:00 Stream 1: An introduction to point (Stats19) data
 
 - Point data: Stats19
 - Spatial and temporal subsetting
 - Aggregation
+
+
+09:30-11:00 Stream 2: Recap of day
+
+- Set-up
+- Subsetting
+- Dplyr and ggplot2
 
 11:15-12:30 Desire lines and routing
 
