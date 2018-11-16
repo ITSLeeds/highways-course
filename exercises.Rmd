@@ -116,16 +116,19 @@ plot(ac_wy$Longitude, ac_wy$Latitude)
     ```{r, echo=FALSE, message=FALSE}
     ac_wy = readr::read_csv("ac_wy.csv")
     ggplot(ac_wy, aes(Speed_limit)) + geom_bar()
-    # ggplot(ac_wy, aes(Speed_limit)) +
-    #   geom_bar(mapping = aes(y = ..prop.. * 100)) +
-    #   ylab("Percentage of roads")
-    # ggplot(ac_wy, aes(`1st_Road_Class`)) +
-    #   geom_bar() 
-    # speed_table = table(ac_wy$`1st_Road_Class`)
-    # speed_proportional = speed_table / nrow(ac_wy) * 100
-    # speed_table_df = as.data.frame(speed_proportional) 
-    # ggplot(speed_table_df, aes(Var1, Freq)) +
-    #   geom_bar(stat = "identity")
+    ggplot(ac_wy, aes(Speed_limit)) +
+      geom_bar(mapping = aes(y = ..prop.. * 100)) +
+      ylab("Percentage of roads")
+    ggplot(ac_wy, aes(`1st_Road_Class`)) +
+      geom_bar()
+    speed_table = table(ac_wy$`1st_Road_Class`)
+    speed_proportional = speed_table / nrow(ac_wy) * 100
+    speed_table_df = as.data.frame(speed_proportional)
+    ggplot(speed_table_df, aes(Var1, Freq, fill = "orange")) +
+      geom_bar(stat = "identity") +
+      ylab("Percent") +
+      xlab(NULL) +
+      theme(axis.text.x = element_text(angle = 90))
     ``` 
   
 # 3 Spatial data
