@@ -57,9 +57,7 @@
 
 13. Use this to visually identify a junction with many crashes.
 
-## 2 Routes
-
-1.  Read-in a dataset representing Leeds with the following command
+14. Read-in a dataset representing Leeds with the following command
     (note: you need to have downloaded the file from
     <https://github.com/ITSLeeds/highways-course/releases> ):
     
@@ -67,13 +65,19 @@
     leeds = readRDS("leeds.Rds")
     ```
 
-2.  Find the CRS of `leeds` with `st_crs()`
+15. Find the CRS of `leeds` with `st_crs()`
 
-3.  Transform the CRS to OSGB with the command `st_transform()` (hint:
+16. Transform the CRS to OSGB with the command `st_transform()` (hint:
     OSGB has the EPSG code 27700).
 
-4.  Find out how many fatal and serious crashes happened in each of the
+17. Find out how many fatal and serious crashes happened in each of the
     MSOA areas in Leeds
     ![](exercises2_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ## Advanced
+
+  - Advanced 1: Find out which MSOA zone had the highest average number
+    of people in crashes
+  - Advanced 2: Look-up packages for clustering (hint: look at
+    <https://geocompr.github.io/geocompkg/articles/> )
+  - Advanced 3 (difficult): Aggregate point to regular grid cells
