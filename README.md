@@ -84,6 +84,8 @@ station):
 
 09:30-11:00 Stream 2: Recap of day
 
+Slow demo of:
+
   - Set-up
   - Subsetting
   - Dplyr and ggplot2
@@ -98,14 +100,15 @@ station):
 
 13:30-15:00 Road traffic data
 
-  - Traffic data introduction (Josh Manning)
+  - Traffic data introduction (Josh Manning and Ivo)
   - Temporal analysis
   - Spatial analysis
 
 15:15-16:30 Practical application
 
-  - Working on real datasets such as flooding or traffic data, or
-    improving specific skills such as visualisation
+  - Stream 1: Consolidation of exercises
+  - Stream 2: Working on real datasets such as flooding or traffic data,
+    or improving specific skills such as visualisation
 
 ## Prerequisites
 
