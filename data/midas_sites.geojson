@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 47, "name": "MIDAS site at M621\/1133A priority 1 on link 116021901; GPS Ref: 432159;429104; Eastbound", "geographic_address": "M621\/1133A", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.513722679561687, 53.757325866627539 ] } },
+{ "type": "Feature", "properties": { "id": 211, "name": "MIDAS site at M621\/1023B priority 1 on link 125025501; GPS Ref: 425269;428250; Westbound", "geographic_address": "M621\/1023B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.618290815447267, 53.750027543894419 ] } },
+{ "type": "Feature", "properties": { "id": 1117, "name": "MIDAS site at M621\/1002A priority 1 on link 116034401; GPS Ref: 423443;427933; Eastbound", "geographic_address": "M621\/1002A", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.646004421458699, 53.74726335629736 ] } },
+{ "type": "Feature", "properties": { "id": 2044, "name": "MIDAS site at M621\/1132B priority 1 on link 116021001; GPS Ref: 432130;429232; Westbound", "geographic_address": "M621\/1132B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.514149252528953, 53.758478059503105 ] } },
+{ "type": "Feature", "properties": { "id": 2437, "name": "MIDAS site at M621\/1018B priority 1 on link 116034502; GPS Ref: 424938;427871; Westbound", "geographic_address": "M621\/1018B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.623340598893459, 53.746636965556945 ] } },
+{ "type": "Feature", "properties": { "id": 4034, "name": "MIDAS site at M621\/1033B priority 1 on link 125025501; GPS Ref: 425827;429066; Westbound", "geographic_address": "M621\/1033B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.609761333451233, 53.757334495531268 ] } },
+{ "type": "Feature", "properties": { "id": 4330, "name": "MIDAS site at M621\/1028B priority 1 on link 125025501; GPS Ref: 425518;428680; Westbound", "geographic_address": "M621\/1028B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.614479588409226, 53.7538803005408 ] } },
+{ "type": "Feature", "properties": { "id": 4876, "name": "MIDAS site at M621\/1005B priority 1 on link 116034302; GPS Ref: 423716;427915; Westbound", "geographic_address": "M621\/1005B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.641866284389286, 53.747089264192581 ] } },
+{ "type": "Feature", "properties": { "id": 5761, "name": "MIDAS site at M621\/1012B priority 1 on link 116034502; GPS Ref: 424376;427712; Westbound", "geographic_address": "M621\/1012B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.631874641043821, 53.745234349024038 ] } },
+{ "type": "Feature", "properties": { "id": 5927, "name": "MIDAS site at M621\/1009B priority 1 on link 116034302; GPS Ref: 424100;427834; Westbound", "geographic_address": "M621\/1009B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.636049995909218, 53.746343673982288 ] } },
+{ "type": "Feature", "properties": { "id": 6104, "name": "MIDAS site at M621\/1001B priority 1 on link 116034302; GPS Ref: 423339;427838; Westbound", "geographic_address": "M621\/1001B", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.647588508335083, 53.746414156959176 ] } },
+{ "type": "Feature", "properties": { "id": 6200, "name": "MIDAS site at M621\/1124A priority 1 on link 116020902; GPS Ref: 432107;430224; Eastbound", "geographic_address": "M621\/1124A", "status": "Active" }, "geometry": { "type": "Point", "coordinates": [ -1.514395312848078, 53.767395146235572 ] } }
+]
+}

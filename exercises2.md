@@ -75,3 +75,5 @@
 4.  Find out how many fatal and serious crashes happened in each of the
     MSOA areas in Leeds
     ![](exercises2_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+## Advanced
